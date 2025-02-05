@@ -81,7 +81,10 @@ const AdminBooking = () => {
                 <td>
                   {booking.email}
                 </td>
-            <td>{booking.start.toDateString()}</td><td>{booking.end.toDateString()}</td><td>{booking.status}</td><td>{booking.reason}</td>
+            <td>{booking.start.toDateString()}</td>
+            <td>{booking.end.toDateString()}</td>
+            <td>{booking.status}</td>
+            <td>{booking.reason}</td>
               </tr>
              
               )

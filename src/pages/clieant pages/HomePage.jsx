@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div> <Header />
     <div className='w-full h-screen bg-blue-900 flex flex-col items-center'>
-      <div className='border border-white bg-white h-[100px] w- [700px] rounded-lg flex justify-center items-center'>
+      <div className='border border-white bg-white h-[100px] w- [700px] rounded-lg flex justify-center items-center p-14'>
       
       <input type="date"/>
       <input type="date"/>

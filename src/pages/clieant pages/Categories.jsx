@@ -5,28 +5,29 @@ import { useEffect, useState } from "react";
 const Categories = () => {
   // Sample Category Data
  const [categories, setCategories] = useState([]);
+ const [categorieslistLoaded, setCategorieslistLoaded] = useState(false);
 
  useEffect(() => {
+
+  if(!categorieslistLoaded){
     axios
       .get("http://localhost:5000/api/category")
       .then((res) => {
         setCategories(res.data.categories);
-        console.log(res.data.categories);
+        setCategorieslistLoaded(true);
 
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+      })}},
+      [categorieslistLoaded]
+    );
+
   function deleteItem(name) {
-    alert("Are you sure you want to delete this category?"+name);}
-    // axios
-    //   .delete(`http://localhost:5000/api/category/${id}`)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
+
+    axios
+      .delete("http://localhost:5000/api/category/"+name)
+      .then((res) => {
+        setCategorieslistLoaded(false);
+      })
+    }
 
   return (
     <div className="p-5">

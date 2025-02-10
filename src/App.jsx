@@ -4,6 +4,7 @@ import HomePage from "./pages/clieant pages/HomePage"
 import AdminPage from "./pages/admin pages/AdminPage"
 import LoginPage from "./pages/login/LoginPage"
 import RegisterPage from "./pages/register/RegisterPage"
+import Categories from "./pages/clieant pages/Categories"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Route path="/admin/*" element={<AdminPage/>} />
     <Route path="/login" element={<LoginPage/>} />
     <Route path="/register" element={<RegisterPage/>} />
+    <Route path="/categories" element={<Categories/>} />
 
     <Route path="/*" element={<HomePage/>} />
     </Routes>

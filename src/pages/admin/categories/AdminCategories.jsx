@@ -48,7 +48,7 @@ const AdminCategories = () => {
   }
 
   function handlePlusClick() {
-   window.location.href="/admin/categories/AddCategory";
+   navigate("/admin/addCategory");
   }
 
   return (

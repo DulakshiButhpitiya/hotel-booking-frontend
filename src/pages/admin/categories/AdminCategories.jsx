@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaEdit, FaTrash } from "react-icons/fa"; 
+import { FaEdit, FaTrash,FaPlus } from "react-icons/fa"; 
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AdminCategories = () => {
 
@@ -15,6 +16,8 @@ const AdminCategories = () => {
 
   const [categories, setCategories] = useState([]);
   const [categorieslistLoaded, setCategorieslistLoaded] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!categorieslistLoaded) {
@@ -44,10 +47,21 @@ const AdminCategories = () => {
     })
   }
 
+  function handlePlusClick() {
+   window.location.href="/admin/categories/AddCategory";
+  }
+
   return (
     <div className="p-5">
     <h1 className="text-3xl font-bold text-center mb-6">Admin Categories</h1>
     <div className="overflow-x-auto">
+      <button className="bg-red-900 w-[60px] h-[60px] border rounded-full text-2xl text-center flex justify-center items-center fixed bottom-10 right-10" 
+      onClick={()=>{
+        handlePlusClick();
+      }}
+      >
+        <FaPlus color="white"/>
+        </button>
       <table className="w-full border border-gray-200">
         <thead>
           <tr className="bg-gray-700 text-white">

@@ -7,6 +7,8 @@ import AdminRooms from '../admin/rooms/AdminRooms';
 import AdminUsers from '../admin/users/AdminUsers';
 import AdminFeedback from '../admin/feedback/AdminFeedback';
 import GalleryItems from '../admin/galleryItems/GalleryItems';
+import AddCategory from '../admin/addCategory/AddCategory';
+
 
 const AdminPage = () => {
   return (
@@ -25,6 +27,7 @@ const AdminPage = () => {
             Categories
           </Link>
         </div>
+        
         <div className='text-white text-[24px] font-bold flex justify-start items-center px-4 py-3'>
           <Link to="/admin/rooms" className='flex items-center gap-3'>
             <FaBed />
@@ -56,6 +59,7 @@ const AdminPage = () => {
         <Routes>
           <Route path="bookings" element={<AdminBooking/>} />
           <Route path="categories" element={<AdminCategories/>} />
+          <Route path="addCategory" element={<AddCategory/>} />
           <Route path="rooms" element={<AdminRooms/>} />
           <Route path="users" element={<AdminUsers/>} />
           <Route path="feedback" element={<AdminFeedback/>} />

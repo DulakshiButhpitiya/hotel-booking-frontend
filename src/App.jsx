@@ -6,6 +6,7 @@ import LoginPage from "./pages/login/LoginPage"
 import RegisterPage from "./pages/register/RegisterPage"
 import Categories from "./pages/clieant pages/Categories"
 import TestComponent from "./test/TestComponent"
+import { Toaster } from 'react-hot-toast'
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <Toaster position="top-right"
+    reverseOrder={false} />
     <Routes path="/*">
     <Route path="/admin/*" element={<AdminPage/>} />
     <Route path="/login" element={<LoginPage/>} />

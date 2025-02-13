@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaEdit, FaTrash } from "react-icons/fa"; 
+import { toast } from "react-hot-toast";
 
 const AdminCategories = () => {
 
@@ -37,10 +38,10 @@ const AdminCategories = () => {
       Authorization: `Bearer ${token}`, // FIX: Use backticks instead of single quotes
     }
     }).then((res) => {
+
       setCategorieslistLoaded(false);
-    }).catch((err) => {
-      console.log(err);
-    });
+      toast.success("Category Deleted Successfully");
+    })
   }
 
   return (

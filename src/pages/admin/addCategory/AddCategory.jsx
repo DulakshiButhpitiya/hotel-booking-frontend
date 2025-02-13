@@ -7,6 +7,7 @@ const AddCategory = () => {
   const [features, setFeatures] = useState("");
   const [description, setDescription] = useState("");
   // const [image, setImage] = useState(null);
+  const [isloading, setIsLoading] = useState(false);
 
   const token =localStorage.getItem("token");
 
@@ -19,9 +20,9 @@ const AddCategory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     
-
-    console.log("Form Data Submitted:"
+console.log("Form Data Submitted:"
     );
     const featuresArray = features.split(",");
     console.log(featuresArray)
@@ -39,6 +40,7 @@ const AddCategory = () => {
     }
     ).then((res) => {
       console.log(res);
+      setIsLoading(false);
     }).catch((err) => {
       
     })
@@ -111,9 +113,13 @@ const AddCategory = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-        >
-          Add Category
+          className="w-full px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded  hover:bg-blue-600 flex justify-center"
+        >{
+          isloading ? <div className="border-t-2 border-t-white w-[20px] min-h-[20px] rounded-full animate-spin"></div>
+          :
+          <span>Add category</span>
+        }
+          
         </button>
       </form>
     </div>

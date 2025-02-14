@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaEdit, FaTrash,FaPlus } from "react-icons/fa"; 
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
 
   const token=localStorage.getItem("token");
 
-  if(token === null){ 
+  if(token == null){ 
     window.location.href="/login";
   }
 
@@ -76,7 +77,7 @@ const AdminCategories = () => {
         <tbody>
           {categories.length > 0 ? (
             categories.map((category, index) => (
-              <tr key={index} className="text-center hover:bg-gray-100">
+              <tr key={index} className="text-center">
                 <td className="border p-2">
                   <img
                     src={category.img || "https://via.placeholder.com/100"}
@@ -89,12 +90,14 @@ const AdminCategories = () => {
                 <td className="border p-3">{category.features || "N/A"}</td>
                 <td className="border p-3">{category.description}</td>
                 <td className="border p-3 flex justify-center gap-3">
-                  <button
+                  <Link
                     className="text-blue-600 hover:text-blue-800"
-                    onClick={() => handleEdit(category._id)}
-                  >
+                    to={"/admin/updateCategory"}
+                    
+                    state={category}>
+                  
                     <FaEdit size={20} />
-                  </button>
+                  </Link>
 
                   <button
                    onClick={()=>handleDelete(category.name)}

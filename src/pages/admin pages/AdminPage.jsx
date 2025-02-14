@@ -8,13 +8,15 @@ import AdminUsers from '../admin/users/AdminUsers';
 import AdminFeedback from '../admin/feedback/AdminFeedback';
 import GalleryItems from '../admin/galleryItems/GalleryItems';
 import AddCategory from '../admin/addCategory/AddCategory';
+import UpdateCategory from '../admin/updateCtegoryForm/UpdateCategory';
+import AddGalleryItem from '../admin/addGalleryItem/AddGalleryItem';
 
 
 const AdminPage = () => {
   return (
     <div className='w-full max-h-[100vh]   flex'>
       {/* Sidebar */}
-      <div className='w-[20%] bg-blue-200 h-[100vh] flex flex-col'>
+      <div className='w-[20%] bg-indigo-950 h-[100vh] flex flex-col'>
         <div className='text-white text-[24px] font-bold flex justify-start items-center px-4 py-3'>
           <Link to="/admin/bookings" className='flex items-center gap-3'>
             <FaBookmark />
@@ -55,11 +57,13 @@ const AdminPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className='w-[80%] bg-blue-900 max-h-[100vh] p-6 overflow-y-scroll text-white'>
+      <div className='w-[80%] bg-blue-400 max-h-[100vh] p-6 overflow-y-scroll text-white'>
         <Routes>
           <Route path="bookings" element={<AdminBooking/>} />
           <Route path="categories" element={<AdminCategories/>} />
           <Route path="addCategory" element={<AddCategory/>} />
+          <Route path="updateCategory" element={<UpdateCategory/>} />
+          <Route path="addGalleryItem" element={<AddGalleryItem/>} />
           <Route path="rooms" element={<AdminRooms/>} />
           <Route path="users" element={<AdminUsers/>} />
           <Route path="feedback" element={<AdminFeedback/>} />

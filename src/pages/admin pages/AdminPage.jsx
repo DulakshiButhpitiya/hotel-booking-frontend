@@ -68,6 +68,7 @@ const AdminPage = () => {
           <Route path="users" element={<AdminUsers/>} />
           <Route path="feedback" element={<AdminFeedback/>} />
           <Route path="galleryItems" element={<GalleryItems/>} />
+    
         </Routes>
       </div>
     </div>

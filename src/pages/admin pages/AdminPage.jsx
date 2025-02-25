@@ -10,6 +10,8 @@ import GalleryItems from '../admin/galleryItems/GalleryItems';
 import AddCategory from '../admin/addCategory/AddCategory';
 import UpdateCategory from '../admin/updateCtegoryForm/UpdateCategory';
 import AddGalleryItem from '../admin/addGalleryItem/AddGalleryItem';
+import AddRoomForm from '../admin/addRoomsForm/AddRoomForm';
+import UpdateRoomForm from '../admin/updateRoomForm/UpdateRoomForm';
 
 
 const AdminPage = () => {
@@ -64,6 +66,8 @@ const AdminPage = () => {
           <Route path="addCategory" element={<AddCategory/>} />
           <Route path="updateCategory" element={<UpdateCategory/>} />
           <Route path="addGalleryItem" element={<AddGalleryItem/>} />
+          <Route path="addrooms" element={<AddRoomForm/>} />
+          <Route path="updateRoom" element={<UpdateRoomForm/>} />
           <Route path="rooms" element={<AdminRooms/>} />
           <Route path="users" element={<AdminUsers/>} />
           <Route path="feedback" element={<AdminFeedback/>} />

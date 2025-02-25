@@ -39,7 +39,7 @@ export default function AdminUsers() {
   const handleDelete = (email) => {
     if (confirm("Are you sure you want to delete this user?")) {
       axios
-        .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/admin-delete/${email}`, {
+        .delete("http://localhost:5000/api/users/admin-delete/" + email, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -83,7 +83,7 @@ export default function AdminUsers() {
     if (confirm(`Are you sure you want to ${action} this user?`)) {
       axios
         .put(
-          `${import.meta.env.VITE_BACKEND_URL}/api/users/disable/${userId}`,
+          "http://localhost:5000/api/users/disable/" + userId,
           { disabled: newStatus },
           {
             headers: {

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import uploadMedia from "../../../utils/mediaUpload.js";
-import { getDownloadURL } from "firebase/storage";
+// import uploadMedia from "../../../utils/mediaUpload.js";
+// import { getDownloadURL } from "firebase/storage";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -64,7 +64,7 @@ export default function UpdateRoomForm() {
 
       // Send update request
       await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/rooms/${room.roomId}`,
+        "http://localhost:5000/api/rooms/" + `${room.roomId}`,
         updatedRoomData,
         {
           headers: {
@@ -95,7 +95,7 @@ export default function UpdateRoomForm() {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-4 py-2 mt-1 border rounded"
+            className="w-full px-4 py-2 mt-1 border rounded text-gray-700"
             required
           />
         </div>
@@ -106,7 +106,7 @@ export default function UpdateRoomForm() {
             type="number"
             value={maxGuests}
             onChange={(e) => setMaxGuests(Number(e.target.value))}
-            className="w-full px-4 py-2 mt-1 border rounded"
+            className="w-full px-4 py-2 mt-1 border rounded text-gray-700"
             required
             min="1"
           />
@@ -117,7 +117,7 @@ export default function UpdateRoomForm() {
           <textarea
             value={specialDescription}
             onChange={(e) => setSpecialDescription(e.target.value)}
-            className="w-full px-4 py-2 mt-1 border rounded"
+            className="w-full px-4 py-2 mt-1 border rounded text-gray-700"
           />
         </div>
 
@@ -126,11 +126,11 @@ export default function UpdateRoomForm() {
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            className="w-full px-4 py-2 mt-1 border rounded"
+            className="w-full px-4 py-2 mt-1 border rounded text-gray-700"
           />
         </div>
 
-        <div>
+        {/* <div>
           <label className="block text-gray-700">Existing Photos:</label>
           <div className="grid grid-cols-3 gap-2 mt-2">
             {photos.map((photo, index) => (
@@ -138,7 +138,7 @@ export default function UpdateRoomForm() {
                 <img
                   src={photo}
                   alt={`Room Photo ${index + 1}`}
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-20 h-20 object-cover rounded text-gray-700"
                 />
                 <button
                   type="button"
@@ -151,9 +151,9 @@ export default function UpdateRoomForm() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <label className="block text-gray-700">Add New Photos:</label>
           <input
             type="file"
@@ -161,7 +161,7 @@ export default function UpdateRoomForm() {
             onChange={handleImageChange}
             className="w-full px-4 py-2 mt-1"
           />
-        </div>
+        </div> */}
 
         <button
           type="submit"

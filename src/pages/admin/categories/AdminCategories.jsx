@@ -80,7 +80,7 @@ const AdminCategories = () => {
               <tr key={index} className="text-center">
                 <td className="border p-2">
                   <img
-                    src={category.img || "https://via.placeholder.com/100"}
+                src={`http://localhost:5000/api/gallery/uploads/${category.img}`} 
                     alt={category.name}
                     className="w-16 h-16 rounded-md"
                   />

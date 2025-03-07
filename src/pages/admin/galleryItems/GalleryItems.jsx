@@ -73,7 +73,7 @@ const GalleryItems = () => {
                 <tr key={index} className="text-center ">
                   <td className="border p-2">
                     <img
-                      src={item.img || "https://via.placeholder.com/100"}
+                           src={`http://localhost:5000/api/gallery/uploads/${item.img}`} 
                       alt={item.name}
                       className="w-16 h-16 rounded-md"
                     />

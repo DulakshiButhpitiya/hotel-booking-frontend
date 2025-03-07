@@ -7,6 +7,7 @@ import RegisterPage from "./pages/register/RegisterPage"
 import Categories from "./pages/clieant pages/Categories"
 import TestComponent from "./test/TestComponent"
 import { Toaster } from 'react-hot-toast'
+import { CustomerPage } from "./pages/clieant pages/ClientPage"
 
 
 function App() {
@@ -22,10 +23,8 @@ function App() {
     <Route path="/login" element={<LoginPage/>} />
     <Route path="/register" element={<RegisterPage/>} />
     <Route path="/categories" element={<Categories/>} />
-    <Route path="/test" element={<TestComponent/>} />    
-
-
-    <Route path="/*" element={<HomePage/>} />
+    <Route path="/test" element={<TestComponent/>} /> 
+    <Route path="/*" element={<CustomerPage/>} />     
     </Routes>
     </BrowserRouter>
   

@@ -1,54 +1,69 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function UserTag(props) {
-  const [userData, setUserData] = useState(null);
   const [name, setName] = useState("");
-  const [userfound,setUserfound]=useState(false)
-  const token = localStorage.getItem("token");
+  const [userFound, setUserFound] = useState(false);
 
   useEffect(() => {
-   
-
-    if (token !=null) {
+    const token = localStorage.getItem("token");
+    if (token) {
       axios
-        .get("http://localhost:5000/api/users/", {
+        .get(import.meta.env.VITE_BACKEND_URL + "/api/users", {
           headers: {
-            Authorization: `Bearer ${token}`, // FIX: Use backticks instead of single quotes
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         })
         .then((res) => {
-          console.log(res); // ✅ Debugging
-          // setUserData(res.data);
-          setName(res.data.user.firstname + " " + res.data.user.lastname);
-          setUserfound(true)
-          // Store user data in state
+          console.log(res);
+          setName(res.data.user.firstName + " " + res.data.user.lastName);
+          setUserFound(true);
         })
         .catch((err) => {
-          console.error("Error fetching user data:", err);
+          console.log(err);
+          setName("");
+          setUserFound(false);
         });
-    }else{
-      setName("")
+    } else {
+      setName("");
+      setUserFound(false);
     }
-  }, [userfound]); // ✅ Runs only once when component mounts
+  }, []);
 
   return (
-    <div className="absolute right-0 top-0 flex items-center cursor-pointer">
-      <img src={props.imageLink} className="rounded-full w-[75px] h-[75px]" />
-      <span className="text-white ml-[5px] text-xl ">
-      {name}
-      </span>
-
-
-      <button onClick={()=>{
-        localStorage.removeItem("token")
-        const token = localStorage.getItem("token")
-        console.log(token)
-      }}>
-          logout
+    <div className="right-4 flex items-center space-x-4">
+      {userFound ? (
+        <div className="flex items-center space-x-3">
+          <img
+            className="rounded-full w-12 h-12 border-2 border-white shadow-md"
+            src={props.imageLink}
+            alt="User"
+          />
+          <span className="text-white font-medium text-lg">{name}</span>
+          <button
+            onClick={() => {
+              localStorage.removeItem("token");
+              setUserFound(false);
+            }}
+            className="bg-red-500 text-white px-4 py-1 rounded-md hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => {
+            window.location.href = "/login";
+          }}
+          className="bg-blue-500 text-white px-4 py-1 rounded-md hover:bg-blue-600 transition"
+        >
+          Login / Sign Up
         </button>
+      )}
     </div>
   );
 }
+
 
 export default UserTag;

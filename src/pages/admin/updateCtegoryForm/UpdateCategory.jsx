@@ -18,7 +18,7 @@ const [description, setDescription] = useState(location.state?.description || ""
     // const [image, setImage] = useState(null);
     const [isloading, setIsLoading] = useState(false);
 
-
+console.log("Features:", features[0]);
   
   
     const token =localStorage.getItem("token");

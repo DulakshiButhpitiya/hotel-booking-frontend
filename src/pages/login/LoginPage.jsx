@@ -14,7 +14,7 @@ const LoginPage = () => {
         localStorage.setItem("token", res.data.token);
         console.log(res.data);
 
-        if (res.data.user.type === "customer") {
+        if (res.data.user.type === "user") {
           window.location.href = "/";
         } else if (res.data.user.type === "admin") {
           window.location.href = "/admin";

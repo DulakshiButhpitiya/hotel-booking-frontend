@@ -27,7 +27,7 @@ export default function HomePage() {
   // Load categories on mount
   useEffect(() => {
     axios
-      .get(import.meta.env.VITE_BACKEND_URL + "/api/category")
+      .get("http://localhost:5000/api/category")
       .then((res) => {
         setCategories(res.data.categories || []);
       })
@@ -57,7 +57,7 @@ export default function HomePage() {
     setIsLoading(true);
     axios
       .post(
-        import.meta.env.VITE_BACKEND_URL + "/api/bookings/create-by-category",
+        "http://localhost:5000/api/booking/create-by-category",
         {
           category: selectedCategory,
           start: startDate,
@@ -66,6 +66,7 @@ export default function HomePage() {
         {
           headers: {
             Authorization: `Bearer ${token}`,
+             "Authorization": "Bearer YOUR_ACCESS_TOKEN"
           },
         }
       )

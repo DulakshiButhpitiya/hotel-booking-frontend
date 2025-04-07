@@ -60,7 +60,7 @@ const AdminPage = () => {
 
       {/* Main Content */}
       <div className='w-[80%] bg-blue-400 max-h-[100vh] p-6 overflow-y-scroll text-white'>
-        <Routes>
+      <Routes path="/admin/">
           <Route path="bookings" element={<AdminBooking/>} />
           <Route path="categories" element={<AdminCategories/>} />
           <Route path="addCategory" element={<AddCategory/>} />

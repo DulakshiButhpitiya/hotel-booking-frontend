@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 import { toast } from "react-hot-toast";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link , useLocation} from "react-router-dom";
+
+
 
 const GalleryItems = () => {
   const token = localStorage.getItem("token");
@@ -47,6 +49,9 @@ const GalleryItems = () => {
         toast.error("Failed to Delete Item");
       });
   }
+  function handlePlusClick() {
+    navigate("/admin/addGalleryItem");
+   }
 
   return (
     <div className="p-5">
@@ -54,7 +59,7 @@ const GalleryItems = () => {
       <div className="overflow-x-auto">
         <button
           className="bg-red-900 w-[60px] h-[60px] border rounded-full text-2xl text-center flex justify-center items-center fixed bottom-10 right-10"
-          onClick={() => navigate("/admin/AddGalleryItem")}
+          onClick={() => handlePlusClick()}
         >
           <FaPlus color="white" />
         </button>
